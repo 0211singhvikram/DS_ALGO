@@ -1,0 +1,34 @@
+// DSU
+vector<int> parent;
+vector<int> rank;
+
+int find(int a)
+{
+    if(a == parent[a])
+        return a;
+// Path Compression
+    return parent[a] = find(parent[a]);
+}
+
+void union(int a, int b)
+{
+    int parent_a = find(a);
+    int parent_b = find(b);
+    
+    if(parent_a == parent_b)
+        return;
+
+// Union by rank
+    if(rank[a] > rank[b])
+        parent[b] = parent_a;
+        
+    else if(rank[b] > rank[a])
+        parent[a] = parent_b;
+    
+    else {
+        parent[b] = parent[a];
+        rank[a]++;
+    }
+    
+    
+}
