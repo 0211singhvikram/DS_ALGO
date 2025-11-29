@@ -19,15 +19,15 @@ void Union(int a, int b)
         return;
 
 // Union by rank
-    if(rank[a] > rank[b])
-        parent[b] = parent_a;
+    if(rank[parent_a] > rank[parent_b])
+        parent[parent_b] = parent_a;
         
-    else if(rank[b] > rank[a])
-        parent[a] = parent_b;
+    else if(rank[parent_b] > rank[parent_a])
+        parent[parent_a] = parent_b;
     
     else {
-        parent[b] = parent[a];
-        rank[a]++;
+        parent[parent_b] = parent_a;
+        rank[parent_a]++;
     }
     
     
