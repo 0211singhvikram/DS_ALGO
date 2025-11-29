@@ -10,7 +10,7 @@ int find(int a)
     return parent[a] = find(parent[a]);
 }
 
-void union(int a, int b)
+void Union(int a, int b)
 {
     int parent_a = find(a);
     int parent_b = find(b);
